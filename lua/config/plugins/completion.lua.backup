@@ -13,7 +13,8 @@ return {
         nerd_font_variant = 'mono'
       },
 
-      signature = { enabled = true }
-    },
+      signature = { enabled = true },
   },
+  opts_extend = { "sources.default", }
+},
 }
