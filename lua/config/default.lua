@@ -30,6 +30,14 @@ vim.opt.cursorline = true
 
 vim.opt.scrolloff = 15
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "lua",
+	callback = function()
+		vim.bo.tabstop = 2 -- Number of spaces for a tab
+		vim.bo.shiftwidth = 2 -- Number of spaces for indentation
+		vim.bo.expandtab = true -- Convert tabs to spaces
+	end,
+})
 -- [[ Basic Keymaps ]]
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -59,4 +67,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
-

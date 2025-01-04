@@ -1,5 +1,5 @@
 function ColorMyPencils(color)
-	color = color or "rose-pine"
+	color = color or "catppuccin"
 	vim.cmd.colorscheme(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -15,6 +15,8 @@ return {
     {
         "folke/tokyonight.nvim",
         lazy = false,
+
+        name = "tokyonight",
         opts = {},
         config = function()
             ColorMyPencils()
@@ -56,7 +58,7 @@ return {
             require("tokyonight").setup({
                 -- your configuration comes here
                 -- or leave it empty to use the default settings
-                style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+                style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
                 transparent = false, -- Enable this to disable setting the background color
                 terminal_colors = false, -- Configure the colors used when opening a `:terminal` in Neovim
                 styles = {
@@ -71,7 +73,59 @@ return {
             })
         end
     },
-
+    { 
+        "catppuccin/nvim", 
+        name = "catppuccin", 
+        config = function()
+            require('catppuccin').setup({
+                flavour = "mocha",
+                background = {
+                    light = "latte",
+                    dark = "mocha"
+                },
+                transparent_background = true,
+                show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+                term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+                dim_inactive = {
+                    enabled = false, -- dims the background color of inactive window
+                    shade = "dark",
+                    percentage = 0.15, -- percentage of the shade to apply to the inactive window
+                },
+                no_italic = false, -- Force no italic
+                no_bold = false, -- Force no bold
+                no_underline = false, -- Force no underline
+                styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+                    comments = { "italic" }, -- Change the style of comments
+                    conditionals = { "italic" },
+                    loops = {},
+                    functions = {},
+                    keywords = {},
+                    strings = {},
+                    variables = {},
+                    numbers = {},
+                    booleans = {},
+                    properties = {},
+                    types = {},
+                    operators = {},
+                },
+                color_overrides = {},
+                custom_highlights = {},
+                default_integrations = true,
+                integrations = {
+                    cmp = true,
+                    gitsigns = true,
+                    nvimtree = true,
+                    treesitter = true,
+                    notify = false,
+                    mini = {
+                        enabled = false,
+                        indentscope_color = "",
+                    },
+                },
+            })
+	vim.cmd.colorscheme "catppuccin"
+        end,
+    },
     {
         "rose-pine/neovim",
         name = "rose-pine",
