@@ -14,6 +14,9 @@ return {
 					"go",
 					"gomod",
 					"gosum",
+					"gowork",
+					"gotmpl",
+					"comment",
 					"gitignore",
 					"dockerfile",
 					"sql",
@@ -27,7 +30,7 @@ return {
 				ignore_install = {}, -- No parsers to ignore
 				highlight = {
 					enable = true,
-					disable = function(_, buf) -- Removed unused 'lang'
+					disable = function(_, buf)  -- Removed unused 'lang'
 						local max_filesize = 100 * 1024 -- 100 KB
 						local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(buf))
 						if ok and stats and stats.size > max_filesize then

@@ -38,38 +38,42 @@ return {
 
 			-- Keymaps
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
+
 			vim.keymap.set("n", "<leader>en", function()
 				builtin.find_files({ cwd = vim.fn.stdpath("config") })
 			end, { desc = "Edit Neovim config files" })
+
 			vim.keymap.set("n", "<leader>ep", function()
 				builtin.find_files({ cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy") })
 			end, { desc = "Edit plugin files" })
-			vim.keymap.set(
-				"n",
-				"<leader>fc",
-				builtin.current_buffer_fuzzy_find,
-				{ desc = "Search in current file", noremap = true, silent = true }
-			)
+
 			vim.keymap.set(
 				"n",
 				"<leader>fx",
 				builtin.treesitter,
 				{ desc = "Treesitter symbols", noremap = true, silent = true }
 			)
+
 			vim.keymap.set(
 				"n",
 				"<leader>ff",
 				builtin.find_files,
 				{ desc = "Find files", noremap = true, silent = true }
 			) -- Lists files in your current working directory, respects .gitignore
-			vim.keymap.set(
-				"n",
-				"<leader>fs",
-				builtin.spell_suggest,
-				{ desc = "Spell suggestions", noremap = true, silent = true }
-			) -- Lists spell options
-
+			-- vim.keymap.set(
+			-- 	"n",
+			-- 	"<leader>fs",
+			-- 	builtin.spell_suggest,
+			-- 	{ desc = "Spell suggestions", noremap = true, silent = true }
+			-- ) -- Lists spell options
+			--
 			-- Load additional custom config (if any)
+			-- vim.keymap.set(
+			-- 	"n",
+			-- 	"<leader>fc",
+			-- 	builtin.current_buffer_fuzzy_find,
+			-- 	{ desc = "Search in current file", noremap = true, silent = true }
+			-- )
 			require("config.telescope.multigrep").setup()
 		end,
 	},
