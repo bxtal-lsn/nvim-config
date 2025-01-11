@@ -17,21 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		{ import = "config.plugins.autoformat" },
-		{ import = "config.plugins.blink" },
-		{ import = "config.plugins.dadbod" },
-		{ import = "config.plugins.fugitive" },
-		{ import = "config.plugins.gitsigns" },
-		{ import = "config.plugins.lsp" },
-		{ import = "config.plugins.oil" },
-		{ import = "config.plugins.sleuth" },
-		{ import = "config.plugins.telescope" },
-		{ import = "config.plugins.todo" },
-		{ import = "config.plugins.tokyonight" },
-		{ import = "config.plugins.treesitter" },
-		{ import = "config.plugins.trouble" },
-		{ import = "config.plugins.xray_go" },
-		{ import = "config.plugins.persistance" },
-		{ import = "config.plugins.snacks" },
+		{ import = "config.plugins.active" },
 	},
 })
