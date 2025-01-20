@@ -23,6 +23,8 @@ return {
 					"csv",
 					"json",
 					"yaml",
+					"hcl",
+					"terraform",
 				},
 				indent = { enable = true },
 				sync_install = false, -- Install languages synchronously

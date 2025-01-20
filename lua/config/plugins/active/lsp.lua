@@ -3,6 +3,10 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"saghen/blink.cmp",
+			{ "williamboman/mason.nvim", opts = {} },
+			"williamboman/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			{ "j-hui/fidget.nvim",       opts = {} },
 			{
 				"folke/lazydev.nvim",
 				opts = {
@@ -111,6 +115,27 @@ return {
 					end
 				end,
 			})
+			local ensure_installed = vim.tbl_keys(servers or {})
+			vim.list_extend(ensure_installed, {
+				-- golang
+				"gopls",
+				"gofumpt",
+				"goimports",
+				"goimports-reviser",
+				"go-debug-adapter",
+				"golangci-lint",
+				"golangci-lint-langserver",
+				"golines",
+				"gotestsum",
+				"gomodifytags",
+				"gotests",
+				-- end --
+				"lua-language-server",
+				"stylua", -- Used to format Lua code
+				"terraform-ls",
+				"hclfmt",
+			})
+			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 		end,
 	},
 }
