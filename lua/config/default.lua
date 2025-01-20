@@ -4,13 +4,32 @@ vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<leader>x", ":.lua<CR>")
 vim.keymap.set("v", "<leader>x", ":luaCR>")
 vim.g.have_nerd_font = true
-
+vim.o.cmdheight = 0
 -- [[ Setting options ]]
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showmode = false
-vim.opt.clipboard = "unnamedplus"
+
+if vim.fn.has("win32") == 1 or vim.fn.has("wsl") == 1 then
+	-- Check if the path exists
+	local win32yank_path = "/mnt/c/Users/bl/scoop/shims/win32yank.exe"
+	if vim.fn.executable(win32yank_path) == 1 then
+		vim.opt.clipboard = "unnamedplus"
+		vim.g.clipboard = {
+			name = "win32yank",
+			copy = {
+				["+"] = win32yank_path .. " -i --crlf",
+				["*"] = win32yank_path .. " -i --crlf",
+			},
+			paste = {
+				["+"] = win32yank_path .. " -o --lf",
+				["*"] = win32yank_path .. " -o --lf",
+			},
+			cache_enabled = 0,
+		}
+	end
+end
 
 vim.opt.undofile = true
 
@@ -29,7 +48,7 @@ vim.opt.splitbelow = true
 vim.opt.inccommand = "split"
 
 vim.opt.cursorline = true
-
+vim.o.ruler = false
 vim.opt.scrolloff = 15
 
 -- [[ Basic Keymaps ]]
