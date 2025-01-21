@@ -8,6 +8,12 @@ return {
 			bigfile = { enabled = true },
 			dashboard = {
 				sections = {
+					{
+						section = "terminal",
+						cmd = "chafa ~/.config/tokyo-night.png --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
+						height = 15,
+						padding = 1,
+					},
 					{ section = "header" },
 					{ icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
 					{ icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
@@ -15,9 +21,6 @@ return {
 					{ section = "startup" },
 				},
 			},
-			bufdelete = { enabled = true },
-			lazygit = { enabled = true },
-			statuscolumn = { enabled = true },
 		},
 	},
 }
