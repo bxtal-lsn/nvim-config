@@ -82,3 +82,23 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+-- Open a new flotterm
+vim.api.nvim_set_keymap("n", "<leader>ft", ":FloatermNew<CR>", { noremap = true, silent = true })
+
+-- Toggle the terminal
+vim.api.nvim_set_keymap("n", "<leader>t", ":FloatermToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "<leader>tt", "<C-\\><C-n>:FloatermToggle<CR>", { noremap = true, silent = true })
+
+-- Navigate between floaterms
+vim.api.nvim_set_keymap("n", "<leader>fn", ":FloatermNext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fp", ":FloatermPrev<CR>", { noremap = true, silent = true })
+
+-- Kill floaterm instance
+vim.api.nvim_set_keymap("n", "<leader>fk", ":FloatermKill<CR>", { noremap = true, silent = true })
+
+-- Close terminal with ESC in terminal mode
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+
+vim.g.floaterm_autoinsert = true
+vim.g.floaterm_borderchars = "─│─│┌┐┘└"

@@ -10,7 +10,7 @@ return {
 				sections = {
 					{
 						section = "terminal",
-						cmd = "chafa ~/.config/tokyo-night.png --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
+						cmd = "chafa ~/.config/linux.png --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
 						height = 15,
 						padding = 1,
 					},

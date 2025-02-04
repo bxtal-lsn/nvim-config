@@ -74,7 +74,7 @@ return {
 			-- 	builtin.current_buffer_fuzzy_find,
 			-- 	{ desc = "Search in current file", noremap = true, silent = true }
 			-- )
-			require("config.telescope.multigrep").setup()
+			--require("config.telescope.multigrep").setup()
 		end,
 	},
 }
